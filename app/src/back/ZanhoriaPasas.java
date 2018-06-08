@@ -28,7 +28,6 @@ public class ZanhoriaPasas extends Producto{
         super.setCantidad(); //To change body of generated methods, choose Tools | Templates.
         this.cantidad = cantidad;
     }
-
     public void receta(){
         receta.put(null, null);
     }

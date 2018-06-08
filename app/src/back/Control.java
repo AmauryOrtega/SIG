@@ -30,10 +30,11 @@ public class Control {
     }
     
     public void setCantidades(int a, int b, int c, int d, int e){
-        for (int i = 0; i < 4; i++) {
-            lista.get(i).
-        }
-      
-        
+        lista.get(0).setCantidad(a);
+        lista.get(1).setCantidad(b);
+        lista.get(2).setCantidad(c);
+        lista.get(3).setCantidad(d);
+        lista.get(4).setCantidad(e);
     }
+    
 }
