@@ -16,9 +16,9 @@ public class Oreo extends Producto {
         receta.put("Queso Crema(g)", 30.0);
         receta.put("Azúcar(g)", 8.333);
         receta.put("Vainilla(mg)", 0.033);
-        receta.put("Huevo (pieza)", 0.133);
+        receta.put("Huevo(pieza)", 0.133);
         receta.put("Crema Ácida(dl)", 0.083);
-        receta.put("Sal (pizca)", 0.033);
+        receta.put("Sal(pizca)", 0.033);
 
     }
 

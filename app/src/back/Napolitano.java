@@ -12,14 +12,14 @@ public class Napolitano extends Producto {
 
     public Napolitano() {
 
-        receta.put("Huevo (pieza)", 0.22);
+        receta.put("Huevo(pieza)", 0.22);
         receta.put("Mantequilla(g)", 10.0);
         receta.put("Azúcar(g)", 27.78);
-        receta.put("Harina (g)", 41.67);
-        receta.put("Polvo para Hornear (mg)", 0.22);
-        receta.put("Leche (dl)", 0.1389);
+        receta.put("Harina(g)", 41.67);
+        receta.put("Polvo para Hornear(mg)", 0.22);
+        receta.put("Leche(dl)", 0.1389);
         receta.put("Vainilla(mg)", 3330.0);
-        receta.put("Chocolate amargo (g)", 13.89);
+        receta.put("Chocolate amargo(g)", 13.89);
         receta.put("Queso Crema(g)", 42.22);
         receta.put("Mantequilla(g)", 5.0);
         receta.put("Fresa(g)", 1.67);

@@ -19,7 +19,7 @@ public class ZanahoriaPasas extends Producto {
         receta.put("Bicarbonato de Sodio(mg)", 0.083);
         receta.put("Canela en Polvo(mg)", 0.083);
         receta.put("Aceite Vegetal(dl)", 2.5);
-        receta.put("Huevo(piezas)", 0.333);
+        receta.put("Huevo(pieza)", 0.333);
     }
 
     @Override
