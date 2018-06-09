@@ -12,24 +12,36 @@ import java.util.Map;
  *
  * @author Gray
  */
-public class ZanhoriaPasas extends Producto{
-  private final String name = "ZanahoriaPasas";
-  private int cantidad;
-  private final int precio = 5000;
-  private final Map< String,Integer> receta= new HashMap<>();
+public class ZanhoriaPasas extends Producto {
 
-    public ZanhoriaPasas(int cantidad){
+    private final String name = "ZanahoriaPasas";
+    private int cantidad;
+    private final int precio = 5000;
+    private final Map< String, Integer> receta = new HashMap<>();
+
+    public ZanhoriaPasas(int cantidad) {
         this.cantidad = cantidad;
         receta();
     }
 
     @Override
+    public int getPrecio() {
+        return precio; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getCantidad() {
+        return cantidad; //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
     public void setCantidad(int cantidad) {
         super.setCantidad(); //To change body of generated methods, choose Tools | Templates.
         this.cantidad = cantidad;
     }
-    public void receta(){
+
+    public void receta() {
         receta.put(null, null);
     }
-  
+
 }

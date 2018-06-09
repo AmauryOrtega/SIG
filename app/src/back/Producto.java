@@ -14,8 +14,15 @@ import java.util.Map;
  */
 public abstract class Producto {
 
-    
-    public void setCantidad(int cantidad){      
+    public void setCantidad(int cantidad) {
+    }
+
+    public int getCantidad() {
+        return 0;
+    }
+
+    public int getPrecio() {
+        return 0;
     }
 
     void setCantidad() {
