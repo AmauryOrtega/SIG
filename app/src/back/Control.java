@@ -14,19 +14,17 @@ import java.util.Random;
 
 public class Control {
 
-    private static final int diasSimulacion = 13;
-    private Map< String, Integer> ventaDia;
-    private ArrayList<Producto> lista;
+ 
+    private ArrayList<Producto> listaProductos;
     private Inventario inventario = new Inventario();
 
     public Control() {
 
-        this.ventaDia = new HashMap<>();
-        this.lista.add(new RedVelvet());
-        this.lista.add(new ZanahoriaPasas());
-        this.lista.add(new Oreo());
-        this.lista.add(new Napolitano());
-        this.lista.add(new ChocolateCereza());
+        this.listaProductos.add(new RedVelvet());
+        this.listaProductos.add(new ZanahoriaPasas());
+        this.listaProductos.add(new Oreo());
+        this.listaProductos.add(new Napolitano());
+        this.listaProductos.add(new ChocolateCereza());
 
     }
 
@@ -40,51 +38,42 @@ public class Control {
         setCantidades(a, b, c, d, e);
 
         for (String ingrediente : inventario.getListaInventario().keySet()) {
-            for (Producto producto : lista) {
+            for (Producto producto : listaProductos) {
                 Double cantidad_actual = inventario.getListaInventario().get(ingrediente);
                 Double cantidad_a_restar = (Double) producto.getReceta().getOrDefault(ingrediente, 0.0) * producto.getCantidad();
                 if (cantidad_actual >= cantidad_a_restar) {
                     inventario.getListaInventario().put(ingrediente, cantidad_actual - cantidad_a_restar);
                 } else {
                     inventario.getListaInventario().put(ingrediente, inventario.getListaInventarioDefault().get(ingrediente));
-                    
+
                     inventario.getListaInventario().put(ingrediente, cantidad_actual - cantidad_a_restar);
                 }
             }
         }
-
-        int utilidad = ventaDelDia();
-        //Este es el map que se va.
-        ventaDia.put("Dia", dia);
-        ventaDia.put("utilidad", utilidad);
-        ventaDia.put(lista.get(1).getName(), lista.get(1).getCantidad());
-        ventaDia.put("utilidad", utilidad);
-    }
-
-    public int ventaDelDia() {
-        int utilidad = 0;
-        for (Producto producto : lista) {
-            utilidad += (producto.getCantidad() * producto.getUtilidad());
-        }
-        return utilidad;
     }
 
     public void setCantidades(int a, int b, int c, int d, int e) {
-        lista.get(0).setCantidad(a);
-        lista.get(1).setCantidad(b);
-        lista.get(2).setCantidad(c);
-        lista.get(3).setCantidad(d);
-        lista.get(4).setCantidad(e);
+        listaProductos.get(0).setCantidad(a);
+        listaProductos.get(1).setCantidad(b);
+        listaProductos.get(2).setCantidad(c);
+        listaProductos.get(3).setCantidad(d);
+        listaProductos.get(4).setCantidad(e);
     }
 
-    public void ventas() {
-        for (int i = 0; i < diasSimulacion; i++) {
-            ventaDia(i);
-        }
+    public ArrayList<Producto> getListaProductos() {
+        return listaProductos;
     }
 
-    public void informe() {
+    public void setListaProductos(ArrayList<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
+    }
 
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
     }
 
 }

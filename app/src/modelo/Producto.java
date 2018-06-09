@@ -5,25 +5,25 @@ import java.util.Map;
 
 public class Producto {
 
-    private String name;
+    private String Nombre;
 
     private int cantidad;
     private int utilidad;
     private Map< String, Double> receta;
 
-    public Producto(String name, int cantidad, int utilidad) {
-        this.name = name;
+    public Producto(String nombre, int cantidad, int utilidad) {
+        this.Nombre = Nombre;
         this.cantidad = cantidad;
         this.utilidad = utilidad;
         this.receta = new HashMap<>();
     }
 
     public String getName() {
-        return name;
+        return Nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String Nombre) {
+        this.Nombre = Nombre;
     }
 
     public int getCantidad() {
