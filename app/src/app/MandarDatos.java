@@ -25,7 +25,7 @@ public class MandarDatos {
             // DIA 1
             kpis.add(new KPI().setKey("utilidad").setValue(20000).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("COP"));
             kpis.add(new KPI().setKey("oreo").setValue(200).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-            
+
             // DIA 2
             kpis.add(new KPI().setKey("utilidad").setValue(50000).setDate(sdf.parse("2018-06-02 00:00:00")).setUnit("COP"));
             kpis.add(new KPI().setKey("utilidad").setValue(0).setDate(sdf.parse("2018-06-03 00:00:00")).setUnit("COP"));
