@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
+import back.Inventario;
+import modelo.Producto;
+
 public class MandarDatos {
 
     public static void mandar(int diaSimulado, ArrayList<Producto> listaProductos, Inventario inventario) {
@@ -20,29 +23,47 @@ public class MandarDatos {
         String TOKEN = "7v0mqes1z9c3me7gyzeubs";
         Databox databox = new Databox(TOKEN);
         List<KPI> kpis = new ArrayList<>();
-        
-        // Utilidad
+
+        // Calculos
         Double utilidadDia = 0.0;
-        for (Producto producto : listaProductos){
-            
+        for (Producto producto : listaProductos) {
+            // Cantidad de ventas de producto
+            kpis.add(new KPI()
+                    .setKey(producto.getName())
+                    .setValue(producto.getCantidad())
+                    .setDate(sdf.parse("2018-06-" + diaSimulado + " 00:00:00")).
+                    setUnit("Cupcake")
+            );
+            // Utilidad de producto
+            kpis.add(new KPI()
+                    .setKey(producto.getName() + "_Utilidad")
+                    .setValue(producto.getUtilidad() * producto.getCantidad())
+                    .setDate(sdf.parse("2018-06-" + diaSimulado + " 00:00:00")).
+                    setUnit("COP")
+            );
+            // Sumando para utilidadDia
+            utilidadDia += producto.getCantidad() * producto.getUtilidad();
         }
-        kpis.add(new KPI().setKey("Utilidad").setValue(20000).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("COP"));
-        // Cupcakes vendidos
-        kpis.add(new KPI().setKey("Chocolate y Cereza").setValue(200).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-        kpis.add(new KPI().setKey("Napolitano").setValue(100).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-        kpis.add(new KPI().setKey("Oreo").setValue(10).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-        kpis.add(new KPI().setKey("Red Velvet").setValue(80).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-        kpis.add(new KPI().setKey("Zanahoria con Pasas").setValue(170).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-        // Ventas del dia
-        kpis.add(new KPI().setKey("Ventas").setValue(170 + 80 + 10 + 100 + 200).setDate(sdf.parse("2018-06-01 00:00:00")));
+        // Utilidad del dia
+        kpis.add(new KPI()
+                .setKey("Utilidad")
+                .setValue(utilidadDia)
+                .setDate(sdf.parse("2018-06-01 00:00:00"))
+                .setUnit("COP")
+        );
+
         // Estado de inventario
-        String[] ingredientes = {"Aceite Vegetal(dl)", "Azucar(g)", "Azucar Glass(g)", "Bicarbonato de Sodio(mg)", "Canela en Polvo(mg)", "Cerezas(g)", "Chocolate amargo(g)", "Cocoa(g)", "Colorante(pizca)", "Confitado Rojo(pizca)", "Crema Acida(dl)", "Crema para Batir(dl)", "Fresa(pieza)", "Galleta Oreo(pieza)", "Harina(g)", "Huevo(pieza)", "Leche(dl)", "Mantequilla(g)", "Menta Fresca(pieza)", "Polvo para Hornear(mg)", "Queso Crema(g)", "Sal(pizca)", "Vainilla(mg)", "Zanahoria Finamente Rallada(g)"};
-        Random r = new Random();
-        String ingrediente, unidad = "";
-        for (int i = 0; i < 24; i++) {
-            ingrediente = ingredientes[i].substring(0, ingredientes[i].indexOf("("));
-            unidad = ingredientes[i].substring(ingredientes[i].indexOf("(") + 1, ingredientes[i].length() - 1);
-            kpis.add(new KPI().setKey(ingrediente).setValue(r.nextInt(30) + 1).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit(unidad));
+        String nombreIngrediente, unidad = "";
+        for (String ingrediente : inventario.getListaInventario().keySet()) {
+            nombreIngrediente = ingrediente.substring(0, ingrediente.indexOf("("));
+            unidad = ingrediente.substring(ingrediente.indexOf("(") + 1, ingrediente.length() - 1);
+            // Estado de cada inventario con su unidad
+            kpis.add(new KPI()
+                    .setKey(nombreIngrediente)
+                    .setValue(inventario.getListaInventario().get(ingrediente))
+                    .setDate(sdf.parse("2018-06-" + diaSimulado + " 00:00:00"))
+                    .setUnit(unidad)
+            );
         }
         databox.push(kpis);
         StringBuffer lastPushes = databox.lastPushes(1);
@@ -52,43 +73,4 @@ public class MandarDatos {
         System.out.println(gson.toJson(je));
     }
 
-    public static void mandaUtilidad() {
-
-        String TOKEN = "7v0mqes1z9c3me7gyzeubs";
-
-        // Conexion databox
-        Databox databox = new Databox(TOKEN);
-        try {
-            List<KPI> kpis = new ArrayList<>();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-            // DIA 1
-            // Utilidad
-            kpis.add(new KPI().setKey("Utilidad").setValue(20000).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("COP"));
-            // Cupcakes vendidos
-            kpis.add(new KPI().setKey("Chocolate y Cereza").setValue(200).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-            kpis.add(new KPI().setKey("Napolitano").setValue(100).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-            kpis.add(new KPI().setKey("Oreo").setValue(10).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-            kpis.add(new KPI().setKey("Red Velvet").setValue(80).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-            kpis.add(new KPI().setKey("Zanahoria con Pasas").setValue(170).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit("Cupcakes"));
-            // Ventas del dia
-            kpis.add(new KPI().setKey("Ventas").setValue(170 + 80 + 10 + 100 + 200).setDate(sdf.parse("2018-06-01 00:00:00")));
-            // Estado de inventario
-            String[] ingredientes = {"Aceite Vegetal(dl)", "Azucar(g)", "Azucar Glass(g)", "Bicarbonato de Sodio(mg)", "Canela en Polvo(mg)", "Cerezas(g)", "Chocolate amargo(g)", "Cocoa(g)", "Colorante(pizca)", "Confitado Rojo(pizca)", "Crema Acida(dl)", "Crema para Batir(dl)", "Fresa(pieza)", "Galleta Oreo(pieza)", "Harina(g)", "Huevo(pieza)", "Leche(dl)", "Mantequilla(g)", "Menta Fresca(pieza)", "Polvo para Hornear(mg)", "Queso Crema(g)", "Sal(pizca)", "Vainilla(mg)", "Zanahoria Finamente Rallada(g)"};
-            Random r = new Random();
-            String ingrediente, unidad = "";
-            for (int i = 0; i < 24; i++) {
-                ingrediente = ingredientes[i].substring(0, ingredientes[i].indexOf("("));
-                unidad = ingredientes[i].substring(ingredientes[i].indexOf("(") + 1, ingredientes[i].length() - 1);
-                kpis.add(new KPI().setKey(ingrediente).setValue(r.nextInt(30) + 1).setDate(sdf.parse("2018-06-01 00:00:00")).setUnit(unidad));
-            }
-            databox.push(kpis);
-            StringBuffer lastPushes = databox.lastPushes(1);
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonParser jp = new JsonParser();
-            JsonElement je = jp.parse(lastPushes.toString());
-            System.out.println(gson.toJson(je));
-        } catch (Exception e) {
-            System.err.println(e.getLocalizedMessage());
-        }
-    }
 }
