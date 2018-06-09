@@ -10,5 +10,4 @@ package back;
  * @author Gray
  */
 public class Inventario {
-    
 }
