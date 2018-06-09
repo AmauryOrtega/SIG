@@ -12,16 +12,21 @@ public class ChocolateCereza extends Producto {
 
     public ChocolateCereza() {
 
-        receta.put("Harina(g)", 41.63);
-        receta.put("Polvo para Hornear(mg)", 0.083);
-        receta.put("Bicarbonato de Sodio(mg)", 0.083);
-        receta.put("Azúcar(g)", 41.667);
-        receta.put("Azúcar(g)", 41.667);
-        receta.put("Azúcar(g)", 41.667);      
-        receta.put("Azúcar(g)", 41.667);
-        
-        
-        receta.put("Huevo(piezas)", 0.333);
+        receta.put("Harina (g)", 41.625);
+        receta.put("Polvo para Hornear (mg)", 0.125);
+        receta.put("Bicarbonato de Sodio (mg)", 0.0625);
+        receta.put("Sal (pizca)", 0.125);
+        receta.put("Cocoa(g)", 23.375);
+        receta.put("Mantequilla(g)", 5.625);
+        receta.put("Azúcar(g)", 23.375);
+        receta.put("Huevo (pieza)", 0.25);
+        receta.put("Vainilla (mg)", 0.125);
+        receta.put("Leche (dl)", 0.3125);
+        receta.put("Crema para Batir (dl)", 0.3125);
+        receta.put("Chocolate amargo (g)", 31.25);
+        receta.put("Cerezas (g)", 31.25);
+        receta.put("Cerezas (pieza)", 1.0);
+        receta.put("Menta Fresca(pieza)", 1.0);
     }
 
     @Override

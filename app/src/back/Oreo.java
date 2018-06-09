@@ -3,23 +3,23 @@ package back;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ZanahoriaPasas extends Producto {
+public class Oreo extends Producto {
 
-    private final String name = "Zanahoria con Pasas";
+    private final String name = "Oreo";
     private int cantidad;
-    private final int precio = 3000;
+    private final int precio = 3500;
     private final Map< String, Double> receta = new HashMap<>();
 
-    public ZanahoriaPasas() {
+    public Oreo() {
 
-        receta.put("Harina(g)", 20.833);
-        receta.put("Azúcar(g)", 41.667);
-        receta.put("Zanahoria Finamente Rallada(g)", 62.500);
-        receta.put("Polvo para Hornear(mg)", 0.083);
-        receta.put("Bicarbonato de Sodio(mg)", 0.083);
-        receta.put("Canela en Polvo(mg)", 0.083);
-        receta.put("Aceite Vegetal(dl)", 2.5);
-        receta.put("Huevo(piezas)", 0.333);
+        receta.put("Galleta Oreo(pieza)", 1.4);
+        receta.put("Queso Crema(g)", 30.0);
+        receta.put("Azúcar(g)", 8.333);
+        receta.put("Vainilla(mg)", 0.033);
+        receta.put("Huevo (pieza)", 0.133);
+        receta.put("Crema Ácida(dl)", 0.083);
+        receta.put("Sal (pizca)", 0.033);
+
     }
 
     @Override
