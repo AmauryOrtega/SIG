@@ -25,8 +25,9 @@ public class Control {
         int d = rn.nextInt(30) + 1;
         int e = rn.nextInt(30) + 1;
         setCantidades(a, b, c, d, e);
-
+            //Aqui se resta el inventario (Crear funcion papa ello)
         int utilidad = ventaDelDia();
+            //Este es el map que se va.
         ventaDia.put("Dia", dia);
         ventaDia.put("utilidad", utilidad);
     }
