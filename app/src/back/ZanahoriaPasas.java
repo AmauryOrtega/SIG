@@ -14,13 +14,13 @@ import java.util.Map;
  */
 public class ZanahoriaPasas extends Producto {
 
-    private static final String name = "Zanahoria con Pasas";
+    private final String name = "Zanahoria con Pasas";
     private int cantidad;
-    private static final int precio = 3000;
-    private static final Map< String, Double> receta = new HashMap<>();
+    private final int precio = 3000;
+    private final Map< String, Double> receta = new HashMap<>();
 
     public ZanahoriaPasas() {
-           
+
         receta.put("Harina(g)", 20.833);
         receta.put("Azúcar(g)", 41.667);
         receta.put("Zanahoria Finamente Rallada(g)", 62.500);
@@ -31,23 +31,16 @@ public class ZanahoriaPasas extends Producto {
         receta.put("Huevo(piezas)", 0.333);
     }
 
-    public static String getName() {
-        return name;
+    @Override
+    public int getPrecio() {
+        return this.precio; //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
     public int getCantidad() {
-        return cantidad;
+        return this.cantidad;
     }
 
-    public static int getPrecio() {
-        return precio;
-    }
-
-    public Map<String, Double> getReceta() {
-        return receta;
-    }
-    
-    
     @Override
     public void setCantidad(int cantidad) {
         super.setCantidad(); //To change body of generated methods, choose Tools | Templates.
