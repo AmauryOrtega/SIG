@@ -12,7 +12,7 @@ public class Producto {
     private Map< String, Double> receta;
 
     public Producto(String nombre, int cantidad, int utilidad) {
-        this.Nombre = Nombre;
+        this.Nombre = nombre;
         this.cantidad = cantidad;
         this.utilidad = utilidad;
         this.receta = new HashMap<>();
@@ -48,6 +48,11 @@ public class Producto {
 
     public void setReceta(Map<String, Double> receta) {
         this.receta = receta;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "Nombre=" + Nombre + ", cantidad=" + cantidad + ", utilidad=" + utilidad + ", receta=" + receta + '}';
     }
 
 }

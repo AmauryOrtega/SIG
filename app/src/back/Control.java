@@ -7,9 +7,6 @@ import modelo.RedVelvet;
 import modelo.Oreo;
 import modelo.Napolitano;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class Control {
@@ -19,7 +16,7 @@ public class Control {
     private Inventario inventario = new Inventario();
 
     public Control() {
-
+        listaProductos = new ArrayList<>();
         this.listaProductos.add(new RedVelvet());
         this.listaProductos.add(new ZanahoriaPasas());
         this.listaProductos.add(new Oreo());

@@ -10,36 +10,50 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
 
 import back.Inventario;
+import java.util.Date;
 import modelo.Producto;
 
 public class MandarDatos {
 
     public static void mandar(int diaSimulado, ArrayList<Producto> listaProductos, Inventario inventario) {
+        // DEBUG
+        System.out.println("MANDAR DATOS RECIBIO:");
+        System.out.println(diaSimulado);
+        System.out.println(listaProductos);
+        System.out.println(inventario.getListaInventario());
+        
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 
-        String TOKEN = "7v0mqes1z9c3me7gyzeubs";
+        String TOKEN = "zmnus3rv64h8gyci894ta";
         Databox databox = new Databox(TOKEN);
         List<KPI> kpis = new ArrayList<>();
 
         // Calculos
+        String diaSimuladoString = String.valueOf(diaSimulado);
+        Date fechaSimulada = new Date();
+        try {
+            fechaSimulada = sdf.parse("2018-06-" + diaSimuladoString + " 00:00:00");
+        } catch (Exception e) {
+            System.out.println("ERROR CON FECHA");
+        }
         Double utilidadDia = 0.0;
+
         for (Producto producto : listaProductos) {
             // Cantidad de ventas de producto
             kpis.add(new KPI()
                     .setKey(producto.getName())
                     .setValue(producto.getCantidad())
-                    .setDate(sdf.parse("2018-06-" + diaSimulado + " 00:00:00")).
-                    setUnit("Cupcake")
+                    .setDate(fechaSimulada)
+                    .setUnit("Cupcake")
             );
             // Utilidad de producto
             kpis.add(new KPI()
                     .setKey(producto.getName() + "_Utilidad")
                     .setValue(producto.getUtilidad() * producto.getCantidad())
-                    .setDate(sdf.parse("2018-06-" + diaSimulado + " 00:00:00")).
-                    setUnit("COP")
+                    .setDate(fechaSimulada)
+                    .setUnit("COP")
             );
             // Sumando para utilidadDia
             utilidadDia += producto.getCantidad() * producto.getUtilidad();
@@ -48,7 +62,7 @@ public class MandarDatos {
         kpis.add(new KPI()
                 .setKey("Utilidad")
                 .setValue(utilidadDia)
-                .setDate(sdf.parse("2018-06-01 00:00:00"))
+                .setDate(fechaSimulada)
                 .setUnit("COP")
         );
 
@@ -61,16 +75,20 @@ public class MandarDatos {
             kpis.add(new KPI()
                     .setKey(nombreIngrediente)
                     .setValue(inventario.getListaInventario().get(ingrediente))
-                    .setDate(sdf.parse("2018-06-" + diaSimulado + " 00:00:00"))
+                    .setDate(fechaSimulada)
                     .setUnit(unidad)
             );
         }
-        databox.push(kpis);
-        StringBuffer lastPushes = databox.lastPushes(1);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        JsonParser jp = new JsonParser();
-        JsonElement je = jp.parse(lastPushes.toString());
-        System.out.println(gson.toJson(je));
+        //databox.push(kpis);
+        try {
+            StringBuffer lastPushes = databox.lastPushes(1);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(lastPushes.toString());
+            System.out.println(gson.toJson(je));
+        } catch (Exception e) {
+            System.out.println("ERROR PUSHEANDO");
+        }
     }
 
 }
