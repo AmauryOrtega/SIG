@@ -1,7 +1,6 @@
 package app;
 
 import back.*;
-import java.util.ArrayList;
 
 public class Main {
 
@@ -9,6 +8,13 @@ public class Main {
 
            
         Control simulacion = new Control();
+        /*
+            lista <Producto>
+            mapa <String, Double> "NombreProducto", UtilidadDelDiaDelProducto
+            Double totalUtilidadDelDia
+            mapa inventario
+            dia int
+        */
         
         
     }

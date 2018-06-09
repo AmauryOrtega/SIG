@@ -1,22 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package back;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author Gray
- */
 public class Inventario {
 
-    private Map< String, Double> listaInventario = new HashMap<>();
+    private Map< String, Double> listaInventario;
+    private Map< String, Double> listaInventarioDefault;
 
     public Inventario() {
+
+        listaInventario = new HashMap<>();
+        listaInventarioDefault = new HashMap<>();
 
         listaInventario.put("Aceite Vegetal(dl)", 10.0);
         listaInventario.put("Azucar(g)", 5000.0);
@@ -42,6 +37,7 @@ public class Inventario {
         listaInventario.put("Sal(pizca)", 100.0);
         listaInventario.put("Vainilla(mg)", 10000.0);
         listaInventario.put("Zanahoria Finamente Rallada(g)", 3000.0);
+        listaInventarioDefault = listaInventario;
     }
 
     public Map<String, Double> getListaInventario() {
@@ -50,6 +46,14 @@ public class Inventario {
 
     public void setListaInventario(Map<String, Double> listaInventario) {
         this.listaInventario = listaInventario;
+    }
+
+    public Map<String, Double> getListaInventarioDefault() {
+        return listaInventarioDefault;
+    }
+
+    public void setListaInventarioDefault(Map<String, Double> listaInventarioDefault) {
+        this.listaInventarioDefault = listaInventarioDefault;
     }
 
 }

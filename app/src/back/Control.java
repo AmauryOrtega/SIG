@@ -1,5 +1,11 @@
 package back;
 
+import modelo.Producto;
+import modelo.ChocolateCereza;
+import modelo.ZanahoriaPasas;
+import modelo.RedVelvet;
+import modelo.Oreo;
+import modelo.Napolitano;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -36,14 +42,22 @@ public class Control {
         for (String ingrediente : inventario.getListaInventario().keySet()) {
             for (Producto producto : lista) {
                 Double cantidad_actual = inventario.getListaInventario().get(ingrediente);
-                Double cantidad_a_restar = (Double) producto.getReceta().getOrDefault(ingrediente, 0.0);
-                inventario.getListaInventario().put(ingrediente, cantidad_actual - cantidad_a_restar);
+                Double cantidad_a_restar = (Double) producto.getReceta().getOrDefault(ingrediente, 0.0) * producto.getCantidad();
+                if (cantidad_actual >= cantidad_a_restar) {
+                    inventario.getListaInventario().put(ingrediente, cantidad_actual - cantidad_a_restar);
+                } else {
+                    inventario.getListaInventario().put(ingrediente, inventario.getListaInventarioDefault().get(ingrediente));
+                    
+                    inventario.getListaInventario().put(ingrediente, cantidad_actual - cantidad_a_restar);
+                }
             }
         }
-       
+
         int utilidad = ventaDelDia();
         //Este es el map que se va.
         ventaDia.put("Dia", dia);
+        ventaDia.put("utilidad", utilidad);
+        ventaDia.put(lista.get(1).getName(), lista.get(1).getCantidad());
         ventaDia.put("utilidad", utilidad);
     }
 
