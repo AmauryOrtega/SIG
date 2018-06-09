@@ -12,7 +12,7 @@ public abstract class Producto {
         return 0;
     }
 
-    public int getPrecio() {
+    public int getUtilidad() {
         return 0;
     }
 

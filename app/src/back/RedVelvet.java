@@ -7,7 +7,7 @@ public class RedVelvet extends Producto {
 
     private final String name = "Red Velvet";
     private int cantidad;
-    private final int precio = 4500;
+    private final int utilidad = 3150;
     private final Map< String, Double> receta = new HashMap<>();
 
     public RedVelvet() {
@@ -28,8 +28,8 @@ public class RedVelvet extends Producto {
     }
 
     @Override
-    public int getPrecio() {
-        return this.precio; //To change body of generated methods, choose Tools | Templates.
+    public int getUtilidad() {
+        return this.utilidad; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

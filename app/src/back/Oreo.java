@@ -7,7 +7,7 @@ public class Oreo extends Producto {
 
     private final String name = "Oreo";
     private int cantidad;
-    private final int precio = 3500;
+    private final int utilidad = 2450;
     private final Map< String, Double> receta = new HashMap<>();
 
     public Oreo() {
@@ -23,8 +23,8 @@ public class Oreo extends Producto {
     }
 
     @Override
-    public int getPrecio() {
-        return this.precio; //To change body of generated methods, choose Tools | Templates.
+    public int getUtilidad() {
+        return this.utilidad; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

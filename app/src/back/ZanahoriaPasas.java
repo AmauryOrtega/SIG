@@ -7,7 +7,7 @@ public class ZanahoriaPasas extends Producto {
 
     private final String name = "Zanahoria con Pasas";
     private int cantidad;
-    private final int precio = 3000;
+    private final int utilidad = 2100;
     private final Map< String, Double> receta = new HashMap<>();
 
     public ZanahoriaPasas() {
@@ -23,8 +23,8 @@ public class ZanahoriaPasas extends Producto {
     }
 
     @Override
-    public int getPrecio() {
-        return this.precio; //To change body of generated methods, choose Tools | Templates.
+    public int getUtilidad() {
+        return this.utilidad; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
