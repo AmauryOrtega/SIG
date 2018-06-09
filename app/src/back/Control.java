@@ -11,23 +11,38 @@ public class Control {
     private static final int diasSimulacion = 13;
     private Map< String, Integer> ventaDia;
     private ArrayList<Producto> lista;
+    private Inventario inventario = new Inventario();
 
-    public Control(ArrayList<Producto> lista) {
+    public Control() {
+
         this.ventaDia = new HashMap<>();
-        this.lista = lista;
+        this.lista.add(new RedVelvet());
+        this.lista.add(new ZanahoriaPasas());
+        this.lista.add(new Oreo());
+        this.lista.add(new Napolitano());
+        this.lista.add(new ChocolateCereza());
+
     }
 
-    public void ventadia(int dia) {
+    public void ventaDia(int dia) {
         Random rn = new Random();
-        int a = rn.nextInt(30) + 1;
-        int b = rn.nextInt(30) + 1;
-        int c = rn.nextInt(30) + 1;
-        int d = rn.nextInt(30) + 1;
-        int e = rn.nextInt(30) + 1;
+        int a = rn.nextInt(50) + 1;
+        int b = rn.nextInt(50) + 1;
+        int c = rn.nextInt(50) + 1;
+        int d = rn.nextInt(50) + 1;
+        int e = rn.nextInt(50) + 1;
         setCantidades(a, b, c, d, e);
-            //Aqui se resta el inventario (Crear funcion papa ello)
+
+        for (String ingrediente : inventario.getListaInventario().keySet()) {
+            for (Producto producto : lista) {
+                Double cantidad_actual = inventario.getListaInventario().get(ingrediente);
+                Double cantidad_a_restar = (Double) producto.getReceta().getOrDefault(ingrediente, 0.0);
+                inventario.getListaInventario().put(ingrediente, cantidad_actual - cantidad_a_restar);
+            }
+        }
+       
         int utilidad = ventaDelDia();
-            //Este es el map que se va.
+        //Este es el map que se va.
         ventaDia.put("Dia", dia);
         ventaDia.put("utilidad", utilidad);
     }
@@ -35,7 +50,7 @@ public class Control {
     public int ventaDelDia() {
         int utilidad = 0;
         for (Producto producto : lista) {
-            utilidad += (producto.getCantidad() * producto.getPrecio());
+            utilidad += (producto.getCantidad() * producto.getUtilidad());
         }
         return utilidad;
     }
@@ -50,8 +65,12 @@ public class Control {
 
     public void ventas() {
         for (int i = 0; i < diasSimulacion; i++) {
-            ventadia(i);
+            ventaDia(i);
         }
+    }
+
+    public void informe() {
+
     }
 
 }

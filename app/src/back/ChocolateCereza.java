@@ -18,7 +18,7 @@ public class ChocolateCereza extends Producto {
         receta.put("Sal(pizca)", 0.125);
         receta.put("Cocoa(g)", 23.375);
         receta.put("Mantequilla(g)", 5.625);
-        receta.put("Azúcar(g)", 23.375);
+        receta.put("Azucar(g)", 23.375);
         receta.put("Huevo(pieza)", 0.25);
         receta.put("Vainilla(mg)", 0.125);
         receta.put("Leche(dl)", 0.3125);
@@ -39,6 +39,11 @@ public class ChocolateCereza extends Producto {
         return this.cantidad;
     }
 
+    @Override
+    public Map getReceta() {
+        return receta; //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public void setCantidad(int cantidad) {
         super.setCantidad(); //To change body of generated methods, choose Tools | Templates.

@@ -19,8 +19,8 @@ public class Inventario {
     public Inventario() {
 
         listaInventario.put("Aceite Vegetal(dl)", 10.0);
-        listaInventario.put("Azúcar(g)", 5000.0);
-        listaInventario.put("Azúcar Glass(g)", 3000.0);
+        listaInventario.put("Azucar(g)", 5000.0);
+        listaInventario.put("Azucar Glass(g)", 3000.0);
         listaInventario.put("Bicarbonato de Sodio(mg)", 10.0);
         listaInventario.put("Canela en Polvo(mg)", 10.0);
         listaInventario.put("Cerezas(g)", 1000.0);
@@ -28,13 +28,13 @@ public class Inventario {
         listaInventario.put("Cocoa(g)", 1000.0);
         listaInventario.put("Colorante(pizca)", 50.0);
         listaInventario.put("Confitado Rojo(pizca)", 100.0);
-        listaInventario.put("Crema Ácida(dl)", 10.0);
+        listaInventario.put("Crema Acida(dl)", 10.0);
         listaInventario.put("Crema para Batir(dl)", 10.0);
         listaInventario.put("Fresa(pieza)", 100.0);
         listaInventario.put("Galleta Oreo(pieza)", 200.0);
-        listaInventario.put("Harina (g)", 5000.0);
-        listaInventario.put("Huevo (pieza)", 48.0);
-        listaInventario.put("Leche (dl)", 12.0);
+        listaInventario.put("Harina(g)", 5000.0);
+        listaInventario.put("Huevo(pieza)", 48.0);
+        listaInventario.put("Leche(dl)", 12.0);
         listaInventario.put("Mantequilla(g)", 1500.0);
         listaInventario.put("Menta Fresca(pieza)", 100.0);
         listaInventario.put("Polvo para Hornear(mg)", 50.0);

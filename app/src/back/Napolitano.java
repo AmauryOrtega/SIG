@@ -14,7 +14,7 @@ public class Napolitano extends Producto {
 
         receta.put("Huevo(pieza)", 0.22);
         receta.put("Mantequilla(g)", 10.0);
-        receta.put("Azúcar(g)", 27.78);
+        receta.put("Azucar(g)", 27.78);
         receta.put("Harina(g)", 41.67);
         receta.put("Polvo para Hornear(mg)", 0.22);
         receta.put("Leche(dl)", 0.1389);
@@ -23,7 +23,7 @@ public class Napolitano extends Producto {
         receta.put("Queso Crema(g)", 42.22);
         receta.put("Mantequilla(g)", 5.0);
         receta.put("Fresa(g)", 1.67);
-        receta.put("Azúcar Glass(g)", 55.56);
+        receta.put("Azucar Glass(g)", 55.56);
         receta.put("Colorante(pizca)", 0.11);
     }
 
@@ -35,6 +35,11 @@ public class Napolitano extends Producto {
     @Override
     public int getCantidad() {
         return this.cantidad;
+    }
+
+    @Override
+    public Map getReceta() {
+        return receta; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

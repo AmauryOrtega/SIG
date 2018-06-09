@@ -15,6 +15,10 @@ public abstract class Producto {
     public int getUtilidad() {
         return 0;
     }
+    
+    public Map getReceta() {
+        return new HashMap<>();
+    }
 
     void setCantidad() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -13,7 +13,7 @@ public class ZanahoriaPasas extends Producto {
     public ZanahoriaPasas() {
 
         receta.put("Harina(g)", 20.833);
-        receta.put("Azúcar(g)", 41.667);
+        receta.put("Azucar(g)", 41.667);
         receta.put("Zanahoria Finamente Rallada(g)", 62.500);
         receta.put("Polvo para Hornear(mg)", 0.083);
         receta.put("Bicarbonato de Sodio(mg)", 0.083);
@@ -32,6 +32,11 @@ public class ZanahoriaPasas extends Producto {
         return this.cantidad;
     }
 
+    @Override
+    public Map getReceta() {
+        return receta; //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public void setCantidad(int cantidad) {
         super.setCantidad(); //To change body of generated methods, choose Tools | Templates.
