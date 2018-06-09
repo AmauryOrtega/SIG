@@ -18,7 +18,7 @@ import java.util.Random;
 public class Control {
 
     private static final int diasSimulacion = 13;
-    private Map< Integer, Integer> ventaDia;
+    private Map< String, Integer> ventaDia;
     private ArrayList<Producto> lista;
 
     public Control(ArrayList<Producto> lista) {
@@ -34,14 +34,15 @@ public class Control {
         int d = rn.nextInt(30) + 1;
         int e = rn.nextInt(30) + 1;
         setCantidades(a, b, c, d, e);
-        
-        ventaDia.put(dia, lista);
-        
+        int utilidad = ventaDelDia();
+        ventaDia.put("Dia", dia);
+        ventaDia.put("utilidad", utilidad);
     }
-    public int ventaDelDia(){
-        int utilidad=0;
+
+    public int ventaDelDia() {
+        int utilidad = 0;
         for (Producto producto : lista) {
-           utilidad+=(producto.getCantidad()*producto.getPrecio());
+            utilidad += (producto.getCantidad() * producto.getPrecio());
         }
         return utilidad;
     }
@@ -55,14 +56,9 @@ public class Control {
     }
 
     public void ventas() {
-        for (int i = 0; i <diasSimulacion ; i++) {
+        for (int i = 0; i < diasSimulacion; i++) {
             ventadia(i);
         }
-        //Aqui toca mandar el map.
     }
-    
-    
-    
-    
 
 }
