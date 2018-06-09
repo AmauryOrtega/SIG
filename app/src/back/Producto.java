@@ -14,8 +14,7 @@ import java.util.Map;
  */
 public abstract class Producto {
 
-    
-    public void setCantidad(int cantidad){      
+    public void setCantidad(int cantidad) {
     }
 
     void setCantidad() {
