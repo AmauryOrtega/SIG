@@ -1,6 +1,6 @@
 package app;
 
-import back.*;
+import back.Control;
 
 public class Main {
 
