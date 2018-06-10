@@ -11,7 +11,6 @@ import java.util.Random;
 
 public class Control {
 
- 
     private ArrayList<Producto> listaProductos;
     private Inventario inventario = new Inventario();
 
@@ -36,14 +35,19 @@ public class Control {
 
         for (String ingrediente : inventario.getListaInventario().keySet()) {
             for (Producto producto : listaProductos) {
-                Double cantidad_actual = inventario.getListaInventario().get(ingrediente);
                 Double cantidad_a_restar = (Double) producto.getReceta().getOrDefault(ingrediente, 0.0) * producto.getCantidad();
-                if (cantidad_actual >= cantidad_a_restar) {
-                    inventario.getListaInventario().put(ingrediente, cantidad_actual - cantidad_a_restar);
+                if (cantidad_a_restar >= inventario.getListaInventario().get(ingrediente)) {
+                    // Reabastecimiento
+                    inventario.getListaInventario().put(ingrediente, inventario.getListaInventario().get(ingrediente) - cantidad_a_restar);
+                    while (inventario.getListaInventario().get(ingrediente) <= 0) {
+                        inventario.getListaInventario().put(
+                                ingrediente,
+                                inventario.getListaInventario().get(ingrediente) + inventario.getListaInventarioDefault().get(ingrediente)
+                        );
+                    }
                 } else {
-                    inventario.getListaInventario().put(ingrediente, inventario.getListaInventarioDefault().get(ingrediente));
-
-                    inventario.getListaInventario().put(ingrediente, cantidad_actual - cantidad_a_restar);
+                    // Venta normal
+                    inventario.getListaInventario().put(ingrediente, inventario.getListaInventario().get(ingrediente) - cantidad_a_restar);
                 }
             }
         }

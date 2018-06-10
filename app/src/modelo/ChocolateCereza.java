@@ -18,7 +18,6 @@ public class ChocolateCereza extends Producto {
         this.getReceta().put("Crema para Batir(dl)", 0.3125);
         this.getReceta().put("Chocolate amargo(g)", 31.25);
         this.getReceta().put("Cerezas(g)", 31.25);
-        this.getReceta().put("Cerezas(pieza)", 1.0);
         this.getReceta().put("Menta Fresca(pieza)", 1.0);
     }
 

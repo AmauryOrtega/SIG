@@ -79,7 +79,7 @@ public class MandarDatos {
                     .setUnit(unidad)
             );
         }
-        //databox.push(kpis);
+        databox.push(kpis);
         try {
             StringBuffer lastPushes = databox.lastPushes(1);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();

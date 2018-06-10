@@ -35,9 +35,11 @@ public class Inventario {
         listaInventario.put("Polvo para Hornear(mg)", 50.0);
         listaInventario.put("Queso Crema(g)", 5000.0);
         listaInventario.put("Sal(pizca)", 100.0);
-        listaInventario.put("Vainilla(mg)", 10000.0);
+        listaInventario.put("Vainilla(mg)", 100000.0);
         listaInventario.put("Zanahoria Finamente Rallada(g)", 3000.0);
-        listaInventarioDefault = listaInventario;
+        listaInventario.keySet().forEach((ingrediente) -> {
+            listaInventarioDefault.put(ingrediente, listaInventario.get(ingrediente));
+        });
     }
 
     public Map<String, Double> getListaInventario() {
