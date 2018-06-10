@@ -34,7 +34,8 @@ public class MandarDatos {
         String diaSimuladoString = String.valueOf(diaSimulado);
         Date fechaSimulada = new Date();
         try {
-            fechaSimulada = sdf.parse("2018-06-" + diaSimuladoString + " 00:00:00");
+            fechaSimulada = sdf.parse("2018-04-" + diaSimuladoString + " 00:00:00");
+            System.out.println(sdf.format(fechaSimulada));
         } catch (Exception e) {
             System.out.println("ERROR CON FECHA");
         }
