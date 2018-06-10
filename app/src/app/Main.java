@@ -8,19 +8,12 @@ public class Main {
 
         Control simulacion = new Control();
         int diasSimulacion = 13;
-  
-        for (int i = 1; i <= diasSimulacion; i++) {
-            simulacion.ventaDia(i);
-            // la variable dia es i
-            
-            //Estado de las variables por iteracion(dia)
-            
-            simulacion.getListaProductos();
-            simulacion.getInventario();
-            
-        }
 
-        
+        for (int dia = 1; dia <= diasSimulacion; dia++) {
+            simulacion.ventaDia(dia);
+            //Estado de las variables por iteracion(dia)
+            MandarDatos.mandar(dia, simulacion.getListaProductos(), simulacion.getInventario());
+        }
 
     }
 
