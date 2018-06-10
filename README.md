@@ -7,7 +7,7 @@
 - [ ] Manual del Usuario
 - [ ] Imagenes de las Vistas
 - [ ] Documento de la Empresa CupCakes
-- [ ] Codigo Fuente(O enlaces de descarga)
-- [ ] BD
-- [ ] Modelo BD
+- [x] Codigo Fuente(O enlaces de descarga)
+- [ ] ~~BD~~
+- [ ] ~~Modelo BD~~
 - [ ] Carpeta Revisión sistemática
