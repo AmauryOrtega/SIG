@@ -23,7 +23,7 @@ public class MandarDatos {
         System.out.println(diaSimulado);
         System.out.println(listaProductos);
         System.out.println(inventario.getListaInventario());
-        
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 
         String TOKEN = "7v0mqes1z9c3me7gyzeubs";
@@ -39,6 +39,7 @@ public class MandarDatos {
             System.out.println("ERROR CON FECHA");
         }
         Double utilidadDia = 0.0;
+        Integer ventasDia = 0;
 
         for (Producto producto : listaProductos) {
             // Cantidad de ventas de producto
@@ -48,6 +49,7 @@ public class MandarDatos {
                     .setDate(fechaSimulada)
                     .setUnit("Cupcake")
             );
+            ventasDia += producto.getCantidad();
             // Utilidad de producto
             kpis.add(new KPI()
                     .setKey(producto.getName() + "_Utilidad")
@@ -64,6 +66,13 @@ public class MandarDatos {
                 .setValue(utilidadDia)
                 .setDate(fechaSimulada)
                 .setUnit("COP")
+        );
+
+        // Ventas del dia
+        kpis.add(new KPI()
+                .setKey("Ventas")
+                .setValue(ventasDia)
+                .setDate(fechaSimulada)
         );
 
         // Estado de inventario
