@@ -26,7 +26,7 @@ public class MandarDatos {
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 
-        String TOKEN = "zmnus3rv64h8gyci894ta";
+        String TOKEN = "7v0mqes1z9c3me7gyzeubs";
         Databox databox = new Databox(TOKEN);
         List<KPI> kpis = new ArrayList<>();
 

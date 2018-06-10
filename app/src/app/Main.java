@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         Control simulacion = new Control();
-        int diasSimulacion = 13;
+        int diasSimulacion = 30;
 
         for (int dia = 1; dia <= diasSimulacion; dia++) {
             simulacion.ventaDia(dia);
